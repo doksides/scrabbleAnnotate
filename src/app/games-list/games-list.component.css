@@ -1,0 +1,43 @@
+.media {
+    margin-top: .3em;
+    padding: 0.2em;
+    border-bottom: 1px gainsboro solid;
+}
+
+.media-heading {
+    font-size: 120%;
+    text-align: left;
+}
+.media-heading .likebtn em{
+    font-size: 80%;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    color: #ccc;
+    font-style: normal;
+    font-weight: 100;
+    padding-left:0.4em;
+}
+
+.media-heading .likebtn span {
+    color: tomato;
+    font-size: 120%;
+    font-weight: 100;
+}
+
+.media-heading .likebtn span[type="button"]:hover {
+    cursor: pointer;
+}
+
+.media-heading .likebtn .glyphicon-heart-empty[type="button"]:hover {
+    color: orange;
+}
+
+/*.media-heading .likebtn .btn-disabled[type="button"]:hover {
+    cursor: wait;
+}*/
+
+
+li span {
+    padding: .2em;
+    font-weight: 700;
+    color: #ccc;
+}

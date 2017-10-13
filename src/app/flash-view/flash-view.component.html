@@ -1,0 +1,31 @@
+<div class="card">
+  <carousel [interval]="speed" [noWrap]="wrapSlide" (activeSlideChange)="afterSlide($ev)">
+    <slide *ngFor="let item of wordlist">
+      <img src="../assets/images/background.png" alt="{{item}}">
+      <div class="carousel-caption">
+        <h3>{{item}}</h3>
+        <p>Definition of word here</p>
+      </div>
+    </slide>
+  </carousel>
+
+  <div class="card-block settings">
+    <!--<div ngbRadioGroup name="speedBtns">
+      <label class="btn btn-primary" [ngClass]="{ 'active': slideSpeed===slow,  'btn-primary': slideSpeed !=slow, 'btn-success': slideSpeed===slow }">
+      <input type="radio" value="{{slow}}" (click) = "flash.interval=10000"> Slow
+      </label>
+      <label class="btn" [ngClass]="{ 'active': slideSpeed===medium, 'btn-warning': slideSpeed !=medium, 'btn-success': slideSpeed===medium}">
+      <input type="radio" value="{{medium}}" (click) = "setSpeed(flash,medium)"> Medium
+      </label>
+      <label class="btn btn-danger" [ngClass]="{ 'active': slideSpeed===fast,  'btn-danger': slideSpeed !=fast, 'btn-success': slideSpeed===fast }">
+      <input type="radio" value="{{fast}}" (click) = "setSpeed(flash,fast)"> Fast
+      </label>
+    </div>-->
+    <!--<button type="button" (click)="flash.pause()" class="btn btn-warning">
+      <span class="glyphicon glyphicon-pause"></span> Pause</button>
+    <button type="button" (click)="flash.cycle()" class="btn btn-success">
+      <span class="glyphicon glyphicon-play"></span> Start</button>-->
+    <input type="number" class="form-control" [(ngModel)]="speed">
+    <pre>Selected speed: {{speed}}</pre>
+  </div>
+</div>

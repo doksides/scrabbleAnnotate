@@ -1,0 +1,114 @@
+ h1 {
+   margin-bottom: 0.5em;
+   font-family: Oswald, Segoe, Geneva, Verdana, sans-serif;
+   font-size: 180%;
+   font-stretch: expanded;
+   color: darkolivegreen;
+ }
+
+ angular-tag-cloud {
+   font-family: Chunk;
+   font-size: 110%;
+   cursor: pointer;
+ }
+
+ angular-tag-cloud>span,
+ {
+   font-family: Chunk;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ /* font sizes */
+
+ angular-tag-cloud>span.w10 {
+   font-size: 550%;
+ }
+
+ angular-tag-cloud>span.w9 {
+   font-size: 500%;
+ }
+
+ angular-tag-cloud>span.w8 {
+   font-size: 450%;
+ }
+
+ angular-tag-cloud>span.w7 {
+   font-size: 400%;
+ }
+
+ angular-tag-cloud>span.w6 {
+   font-size: 350%;
+ }
+
+ angular-tag-cloud>span.w5 {
+   font-size: 300%;
+ }
+
+ angular-tag-cloud>span.w4 {
+   font-size: 250%;
+ }
+
+ angular-tag-cloud>span.w3 {
+   font-size: 200%;
+ }
+
+ angular-tag-cloud>span.w2 {
+   font-size: 150%;
+ }
+
+ angular-tag-cloud>span.w1 {
+   font-size: 120%;
+ }
+ /* colors */
+
+ angular-tag-cloud>a {
+   color: inherit;
+ }
+
+ angular-tag-cloud>a:hover {
+   color: #0df;
+ }
+
+ angular-tag-cloud>a:hover {
+   color: darkslateblue;
+ }
+
+ angular-tag-cloud>span.w10 {
+   color: forestgreen;
+ }
+
+ angular-tag-cloud>span.w9 {
+   color: mediumorchid;
+ }
+
+ angular-tag-cloud>span.w8 {
+   color: saddlebrown;
+ }
+
+ angular-tag-cloud>span.w7 {
+   color: firebrick;
+ }
+
+ angular-tag-cloud>span.w6 {
+   color: #90c5f0;
+ }
+
+ angular-tag-cloud>span.w5 {
+   color: #90a0dd;
+ }
+
+ angular-tag-cloud>span.w4 {
+   color: darkslategray;
+ }
+
+ angular-tag-cloud>span.w3 {
+   color: mediumorchid;
+ }
+
+ angular-tag-cloud>span.w2 {
+   color: darkslateblue;
+ }
+
+ angular-tag-cloud>span.w1 {
+   color: darkslategray;
+ }

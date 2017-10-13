@@ -1,0 +1,34 @@
+<table class="table table-condensed">
+  <thead>
+    <tr class="table-header">
+      <th>
+        Turn
+      </th>
+      <th>
+        Player
+      </th>
+      <th>
+        Rack
+      </th>
+      <th>
+        Move
+      </th>
+      <th>
+        Score
+      </th>
+      <th>
+        Total
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of movelist | slice:0: currentTurn" [ngClass]="{'animated flash currentmove': item.moveno==currentTurn}">
+      <td>{{item.moveno}}</td>
+      <td>{{item.name| abbreviateString}}</td>
+      <td>{{item.rack}}</td>
+      <td><small>{{item.coord}}</small> {{item.fullword}}</td>
+      <td>{{item.score}}</td>
+      <td>{{item.totalscore}}</td>
+    </tr>
+  </tbody>
+</table>

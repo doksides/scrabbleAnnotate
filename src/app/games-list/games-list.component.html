@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <ngb-pagination (pageChange)="onPageChanged($event)" [pageSize]="itemsPerPg" [collectionSize]="totalItems" [(page)]="currentPage"
+      [directionLinks]="true"></ngb-pagination>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="gameslist" *ngFor="let item of gamedata.data">
+      <div class="media">
+        <div class="media-left">
+          <a [routerLink]="['/game',item.slug, item.moveno ]" routerLinkActive="active">
+            <img class="media-object img-rounded" [src]="item.game_logo" alt="{{item.title}} logo" width="120px" height="120px">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <a [routerLink]="['/game',item.slug, item.moveno ]" routerLinkActive="active">
+            {{item.title}}
+            </a>
+            <span class="likebtn pull-right">
+            <span *ngIf="loggedIn()" #faveBtn (click) = "handleLikeBtnClick( item.gameid, faveBtn  )" type="button" title="{{likeBtnTitle}}" class="glyphicon" [ngClass]="{ 'glyphicon-heart-empty': !is_liked(item.gameid) , 'glyphicon-heart': is_liked(item.gameid), 'btn-disabled': disableBtn }"
+                aria-hidden="true"></span>
+            <ngb-alert *ngIf="alertMessage" type="alertType" (close)="alertMessage = null">{{ alertMessage }}</ngb-alert>
+            <span *ngIf="!loggedIn()" title="Sign in to show some love" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+            <em *ngIf="item.likes_count > 0">{{item.likes_count}}</em>
+            </span>
+          </h4>
+          <ul class="list-inline">
+            <li>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span>{{item.dic}}</span>
+            </li>
+            <li>
+              <i class="fa fa-gavel" aria-hidden="true"></i>
+              <span>{{item.chall}}</span>
+            </li>
+            <li>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <span>{{item.date | date:'fullDate'}}</span>
+            </li>
+            <li>
+              <i class="fa fa-tag" aria-hidden="true"></i>
+              <span>{{item.tag}}</span>
+            </li>
+          </ul>
+          <ul class="list-inline">
+            <li>
+              <ul class="list-inline">
+                <li><img class="img-circle" [src]="item.player1_photo" width="35px" height="35px" alt="{{ item.player1}}"></li>
+                <li>
+                  <h6>{{item.player1 | abbreviateString}}</h6>
+                  <i class="flag-icon-{{item.player1_country | lowercase}} flag-icon"></i>
+                  <i aria-hidden="true" [ngClass]="{'fa-male': item.player1_gender === 'm', ' fa-female': item.player1_gender === 'f'}" class="fa"></i>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="list-inline">
+                <li><img class="img-circle" [src]="item.player2_photo" width="35px" height="35px" alt="{{ item.player2}}"></li>
+                <li>
+                  <h6>{{item.player2 | abbreviateString}}</h6>
+                  <i class="flag-icon-{{item.player2_country | lowercase}} flag-icon"></i>
+                  <i aria-hidden="true" [ngClass]="{'fa-male': item.player2_gender === 'm', ' fa-female': item.player2_gender === 'f'}" class="fa"></i>
+                </li>
+              </ul>
+            </li>
+            <!-- <li>
+              <a [routerLink]="['/game',item.slug, item.moveno ]" routerLinkActive="active">
+                <button type="button" class="btn btn-success btn-sm">
+                  <span class="fa fa-eye" aria-hidden="true"></span> See game
+                </button>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <ngb-pagination (pageChange)="onPageChangedBottom($event)" [pageSize]="itemsPerPg" [collectionSize]="totalItems" [(page)]="currentPage"
+      [directionLinks]="true"></ngb-pagination>
+  </div>
+</div>

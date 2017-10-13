@@ -1,0 +1,174 @@
+.movepanel {
+    margin-top: 0.5em;
+    font-size: 100%;
+}
+
+.movepanel .media {
+    padding: 0.7em
+}
+
+@keyframes zoomin {
+    from {
+        height: 35px;
+        width: 35px;
+    }
+    to {
+        height: 90px;
+        width: 90px;
+    }
+}
+
+@keyframes hilite {
+    from {
+        color: darkgray;
+        font-size: 100%
+    }
+    to {
+        color: forestgreen;
+        font-size: 120%
+    }
+}
+
+.player-turn img {
+    height: 90px;
+    width: 90px;
+    animation-name: zoomin;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in-out
+}
+
+.player-turn .media-heading {
+    color: forestgreen;
+    font-size: 120%;
+    animation-name: hilite;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in
+}
+
+.player-turn {
+    border: 1px beige solid;
+    box-shadow: 6px 3px 6px grey;
+}
+
+.media-heading {
+    font-family: Yanone;
+    color: darkgray;
+    font-size: 90%;
+}
+
+.media-heading>i {
+    margin-left: .5em;
+    color: darkgray;
+}
+
+.media-heading span {
+    display: block;
+    color: gray;
+    font-size: 200%;
+    font-weight: 600;
+    margin: .3em auto;
+}
+
+.moveinfo ul {
+    margin: 0.5em auto;
+}
+
+.moveinfo li:nth-child(1) {
+    font-size: 120%;
+    color: tomato;
+}
+
+.moveinfo li:nth-child(1) small {
+    color: saddlebrown;
+    font-style: italic;
+}
+
+.moveinfo li:nth-child(2) {
+    font-size: 110%;
+    color: darkolivegreen;
+}
+
+.moveinfo li:nth-child(3) {
+    font-size: 130%;
+    color: seagreen
+}
+
+.moveinfo li span,
+.moveinfo li i {
+    font-size: 100%;
+    color: #111;
+}
+
+.prevmove {
+    color: gray
+}
+
+.prevmove strong {
+    color: midnightblue;
+}
+
+.prevmove em,
+.nextrack em {
+    color: lightgray;
+    font-style: normal
+}
+
+.prevmove em>span {
+    font-size: 110%;
+}
+
+.nextrack strong {
+    letter-spacing: .5em;
+    color: yellowgreen;
+    margin-left: .5em
+}
+
+
+/* Tile rack styles*/
+
+.tilesm,
+.lastmove {
+    font-family: 'HelveticaNeueLT Pro 45 Lt', 'Lucida Grande', sans-serif;
+    border-radius: 2px;
+    max-width: 2.3em;
+    max-height: 2.3em;
+    width: 2.3em;
+    height: 2.3em;
+    position: relative;
+    margin: 0;
+    color: #fff;
+    background-color: saddlebrown;
+    text-align: center;
+    padding: 0.4em 0 0.1em 0.1em;
+    font-weight: 500;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+}
+
+.tilevalsm {
+    /* font-family: Helvetica, Arial, Verdana, 'Lucida Grande', sans-serif; */
+    padding-left: .2em;
+    padding-top: 1em;
+    color: #fff;
+    background-color: saddlebrown;
+    font-weight: 500;
+    font-size: 50%;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+}
+
+.tilesm.rack {
+    display: inline-block;
+    font-size: 110%;
+    width: 2.2em;
+    height: 2.2em;
+    margin: .5em 0.1em auto;
+    font-weight: 500;
+}
+
+.tilevalsm.rack {
+    font-size: 30%;
+}
+
+.embossed-heavy {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(255, 255, 255, 0.5);
+}

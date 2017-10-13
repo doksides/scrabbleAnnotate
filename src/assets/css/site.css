@@ -1,0 +1,274 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: Oswald;
+    src: url("../myfonts/Oswald/Oswald-Regular.ttf");
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../myfonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: Yanone;
+    src: url("../myfonts/YanoneKaffeesatz-Regular.ttf");
+}
+
+@font-face {
+    font-family: Writer;
+    src: url("../myfonts/madison.ttf");
+}
+
+@font-face {
+    font-family: WireOne;
+    src: url("../myfonts/WireOne/WireOne.ttf");
+}
+
+@font-face {
+    font-family: Chunk;
+    src: url("../myfonts/Chunkfive.otf");
+}
+
+@font-face {
+    font-family: Bebas;
+    src: url("../myfonts/Bebas/BebasNeue-webfont.ttf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: .2em auto;
+    font-weight: 400;
+    text-align: center;
+    font-family: Oswald, Segoe, "Segoe UI", Optima, Helvetica, sans-serif;
+}
+
+body {
+    background: whitesmoke;
+    color: #555;
+    font-family: Geneva, 'Helvetica Neue', Helvetica, FreeSans, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar .dropdown-menu>li>a,
+.navbar-inverse .navbar-nav>a:hover,
+.navbar-inverse .navbar-nav>li>a {
+    background-color: green;
+    color: #fff;
+}
+
+.navbar,
+.navbar a {
+    background-color: forestgreen;
+    color: #fff;
+    text-decoration: none;
+    font-family: Bebas;
+    font-size: 110%;
+    font-stretch: expanded;
+}
+
+.navbar .navimg {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+}
+
+nav,
+.navbar {
+    height: 35px;
+    font-family: Bebas;
+}
+
+.navbar-form {
+    font-family: 'Helvetica Neue', Helvetica, FreeSans, Verdana, sans-serif;
+}
+
+
+/*.nav .dropdown {
+    float: right;
+}*/
+
+.nav .dropdown .dropbtn {
+    color: white;
+    background-color: forestgreen;
+    cursor: pointer;
+    height: 35px;
+}
+
+.nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: forestgreen;
+    color: white;
+    min-width: 100%;
+    width: 110%;
+    box-shadow: 0px 10px 16px 0px rgba(0, 0, 0, 0.2);
+    font-family: "Lato", 'Helvetica Neue', Helvetica, FreeSans, Verdana, sans-serif;
+    z-index: 1;
+    right: 0;
+    left: auto;
+}
+
+.nav .dropdown-content ul.user-actions {
+    background-color: forestgreen;
+    color: white;
+    padding: 10px 0 12px;
+    list-style: none;
+}
+
+.nav .dropdown-content a {
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    outline: none;
+    background-color: forestgreen;
+    color: white;
+}
+
+.nav .dropdown-content ul.user-actions>li {
+    margin: .5em auto .5em 1em;
+    padding: .5em;
+    font-family: 'Helvetica Neue', Helvetica, FreeSans, Verdana, sans-serif;
+    font-size: 0.9em;
+}
+
+.dropdown-content .user-actions>li * {
+    outline: none;
+}
+
+#user-info {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: auto;
+    position: absolute;
+    left: -70px;
+    top: 10px;
+}
+
+#user-info .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: auto;
+    top: 50%;
+}
+
+.nav .dropdown:hover .dropdown-content {
+    display: block;
+    border-bottom-left-radius: 5px;
+}
+
+
+/* Add Zoom Animation */
+
+.avatar {
+    -webkit-animation: animatezoom 0.8s;
+    animation: animatezoom 0.8s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0.5)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0.5)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+#form-loading {
+    inline-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.login-error-notice {
+    color: #f44336 !important;
+    font-family: Bebas;
+    font-weight: bold;
+    line-height: 12px;
+}
+
+footer {
+    background: forestgreen;
+    color: #fff;
+    padding: 1.5em;
+    font-size: 120%;
+    margin-top: 2em;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+footer p,
+footer h4 {
+    text-align: center;
+    color: #fff;
+}
+
+
+/*Tiles CSS Styles*/
+
+.tilesm,
+.lastmove {
+    font-family: 'HelveticaNeueLT Pro 45 Lt', 'Lucida Grande', sans-serif;
+    font-size: 110%;
+    border-radius: 3px;
+    max-width: 2.3em;
+    max-height: 2.3em;
+    width: 2.3em;
+    height: 2.3em;
+    /* margin: 0; */
+    color: white;
+    background-color: forestgreen;
+    text-align: center;
+    padding: 0.4em 0 0.1em 0.1em;
+    font-weight: 500;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+}
+
+.tilevalsm {
+    color: white;
+    font-weight: 500;
+    font-size: 50%;
+    padding-left: .2em;
+    padding-top: 1em;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+}
+
+.embossed-heavy {
+    border: 1px solid rgba(0, 0, 0.5, 0.1);
+    box-shadow: inset 1px 2px 2px rgba(255, 255, 255, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.lastmove,
+.lastmoveval {
+    color: #fff;
+    background-color: forestgreen;
+}
+
+.lastmove sub,
+.tilevalsm {
+    background-color: transparent;
+}
+
+.tileblank {
+    font-variant: small-caps;
+    font-style: oblique;
+    color: #eee;
+}

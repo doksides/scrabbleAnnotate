@@ -1,3 +1,146 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-static-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">
+        <img alt="NSF logo" class="img-circle" src="../assets/images/nsflogo.png" width="30px" height="30px">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a [routerLink]="['/']" routerLinkActive="active" title="{{sitetitle}}">
+            <span class="fa fa-home"></span> Home
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!loggedIn()">
+          <!--start login form-->
+          <form name="form" class="navbar-form navbar-right" role="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+              <label class="sr-only" for="username">Username</label>
+              <input [(ngModel)]="model.username" #username="ngModel" required type="text" class="form-control" name="username" placeholder="Username">
+              <!--<p *ngIf="f.submitted && !username.valid" class="navbar-text help-block">Username is required</p>-->
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password }">
+              <label class="sr-only" for="password">Password</label>
+              <input [(ngModel)]="model.password" #password="ngModel" required type="password" class="form-control " name="password " placeholder="Password">
+              <!--<p *ngIf="f.submitted && !password.valid" class="navbar-text help-block">Password is required</p>-->
+            </div>
+            <p *ngIf="error" class="navbar-text text-danger login-error-notice"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{error}}</p>
+            <button type="submit " class="btn btn-success btn-sm">Sign in
+              <span *ngIf="!formloading" class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+              <img id="form-loading" *ngIf="formloading" src="../assets/images/ajax_loader_gray_32.gif" />
+            </button>
+          </form>
+          <!--end login form-->
+        </li>
+        <li *ngIf="loggedIn()" class="dropdown">
+          <div class="dropbtn">
+            <p class="navbar-text">Welcome {{user.username}}</p>
+            <img [src]="user.custom_avatar" width="25" height="25" class="img-rounded avatar" alt="{{user.name}}">
+            <button type="button" class="btn btn-danger btn-sm navbar-btn" id="logout" (click)="logout()">
+            Sign out <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="dropdown-content">
+            <ul class="user-actions">
+              <li id="user-info">
+                <img [src]="user.custom_avatar" width="70" height="70" class="avatar" alt="{{user.username}}">
+              </li>
+              <li *ngIf="user.is_admin"><a href="#"> Dashboard
+                <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
+              </li>
+              <li><a (click)="logout()" href="#" role="button" class="btn"> Sign out
+               <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="http://tourneys.nigeriascrabble.com">
+            <span class="fa fa-trophy"></span> Tourneys
+          </a>
+        </li>
+        <li>
+          <a href="http://www.nigeriascrabble.com">
+            <span class="fa fa-link"></span> NSF Blog</a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/NigeriaScrabbleFederation/">
+            <span class="fa fa-facebook-official"></span> Like us</a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com/NigeriaScrabble">
+            <span class="fa fa-twitter-square"></span> Tweet!
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid ">
+  <div *ngIf="loading ">
+    <sk-circle></sk-circle>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+<footer>
+  <div class="container-fluid ">
+    <div class="row ">
+      <div class="col-md-8 col-md-offset-2 ">
+        <p>Scrabble &copy; is a registered trademark. All intellectual property rights in and to the game are owned in the U.S.A
+          and Canada by Hasbro Inc., and throughout the rest of the world by J.W. Spear & Sons Limited of Maidenhead, Berkshire,
+          England, a subsidiary of Mattel Inc.
+        </p>
+      </div>
+    </div>
+    <div class="row ">
+      <h5>This Site is Powered By:</h5>
+      <div class="col-md-8 col-md-offset-2 credits ">
+        <ul class="list-inline center-block ">
+          <li>
+            <ul class="list-inline center-block ">
+              <li>
+                <img class="img-circle " width="40px " height="40px " src="../assets/images/angular.png ">
+              </li>
+              <li>
+                <h6 class="text-left ">AngularJS</h6>
+                <p class="text-lowercase text-left "> Super-cool software!</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul class="list-inline center-block ">
+              <li>
+                <img class="img-circle " width="40px " height="40px " src="../assets/images/nsflogo.png ">
+              </li>
+              <li>
+                <h6 class="text-left ">Nigeria Scrabble Federation</h6>
+                <p class="text-lowercase text-left ">A great community!</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul class="list-inline center-block ">
+              <li>
+                <img class="img-circle " width="40px " height="40px " src="../assets/images/myself.jpg ">
+              </li>
+              <li>
+                <h6 class="text-left ">David</h6>
+                <p class="text-lowercase text-left "> The developer!</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

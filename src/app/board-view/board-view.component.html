@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-12">
+    <app-move-nav [movenav]="detail" (paginationchange)="onMenuPageChange($event)"></app-move-nav>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-7">
+    <app-move-board [moves]="detail.turn"></app-move-board>
+  </div>
+  <div class="col-md-5">
+    <app-move-panel [gameinfo]="detail" (colorchange)="onTileColorSet($event)" (pagerchange)=" onPanelPageChange($event) "></app-move-panel>
+  </div>
+</div>

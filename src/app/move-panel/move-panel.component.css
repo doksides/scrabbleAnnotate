@@ -1,0 +1,37 @@
+p>p {
+    margin: .1em auto;
+    padding-bottom: 0;
+}
+
+.page-header h3 {
+    font-family: Chunk;
+    margin: .5em auto;
+    font-size: 130%;
+}
+
+.page-header ul {
+    font-size: 100%
+}
+
+.media-heading .likebtn em{
+    font-size: 80%;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    color: #ccc;
+    font-style: normal; 
+    font-weight: 100; 
+    padding-left:0.4em;
+}
+
+.media-heading .likebtn span {
+    color: tomato;
+    font-size: 100%; 
+    font-weight: 100;    
+}
+
+.media-heading .likebtn span[type="button"]:hover {
+    cursor: pointer;   
+}
+
+.media-heading .likebtn .glyphicon-heart-empty[type="button"]:hover {
+    color: orange;
+}

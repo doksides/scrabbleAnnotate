@@ -1,0 +1,21 @@
+.carousel-caption {
+    color: #000;
+    font-size: 24px;
+}
+
+.carousel-caption h3 {
+    font-size: 1.3em;
+    text-shadow: none;
+}
+
+.carousel {
+    background: #fff;
+}
+
+:host
+/*::ng-deep*/
+
+ol.carousel-indicators li,
+.carousel-indicators * {
+    display: none !important;
+}

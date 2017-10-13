@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="media page-header">
+      <div class="media-left media-middle">
+        <a href="#">
+          <img class="media-object" width="80px" height="80px" [src]="gameinfo.game_logo" alt="event logo">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">{{gameinfo.title}}
+          <span class="likebtn pull-right">
+            <span *ngIf="loggedIn()" (click)="likeBtnClick(gameinfo)" type="button" title="{{likeBtnTitle}}" class="glyphicon" [ngClass]="{ 'glyphicon-heart-empty': !is_liked(gameinfo), 'glyphicon-heart': is_liked(gameinfo) }"
+                aria-hidden="true"></span>
+          <span *ngIf="!loggedIn()" title="Log in to like" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+          <em *ngIf="gameinfo.likes_count > 0">{{gameinfo.likes_count}}</em>
+          </span>
+        </h3>
+        <h4>{{gameinfo.player_1.name}} <i title="{{gameinfo.player_1.country}}" class="flag-icon-{{gameinfo.player_1.country | lowercase}} flag-icon "></i>          vs {{gameinfo.player_2.name}}
+          <i title="{{gameinfo.player_2.country}}" class="flag-icon-{{gameinfo.player_2.country | lowercase}} flag-icon "></i></h4>
+        <ul class="list-inline text-center">
+          <li>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <span>{{gameinfo.dic}}</span>
+          </li>
+          <li>
+            <i class="fa fa-gavel" aria-hidden="true"></i>
+            <span>{{gameinfo.chall}}</span>
+          </li>
+          <li>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span>{{gameinfo.date|date:'fullDate'}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <ngb-pagination [rotate]="true" [ellipses]="false" [collectionSize]="turns" [(page)]="currentMove" (pageChange)="onPanelPaginationChanged($event)"
+      [maxSize]="1" [pageSize]="1" [disabled]="disabled"></ngb-pagination>
+  </div>
+  <div class="col-md-12" *ngIf="gameinfo.turn.comment">
+    <ngb-alert [dismissible]="false" [type]="alertType">
+      <span *ngIf="notes" [innerHTML]="notes | sanitizeHtml"></span> {{ gameinfo.turn.comment }}
+    </ngb-alert>
+  </div>
+</div>
+<div class="row ">
+  <div class="col-md-12 ">
+    <ngb-tabset [justify]="fill" [destroyOnHide]="false" type="pills">
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          Play <i class="fa fa-play" aria-hidden="true"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-ui-playtab [gameinfo]="gameinfo"></app-ui-playtab>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          Moves <i class="fa fa-list-ol" aria-hidden="true"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-ui-movelist [gameinfo]="gameinfo"></app-ui-movelist>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          Tiles <i class="fa fa-check" aria-hidden="true"></i>
+        </ng-template>
+        <ng-template ngbTabContent>
+           <app-ui-tracking [gameinfo]="gameinfo"></app-ui-tracking>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab>
+        <ng-template ngbTabTitle>Tile Colors <i class="fa fa-cog" aria-hidden="true"></i></ng-template>
+        <ng-template ngbTabContent>
+          <app-ui-settings (colorchange)=onTileColorChange($event)></app-ui-settings>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+
+</div>

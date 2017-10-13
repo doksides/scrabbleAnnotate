@@ -1,0 +1,5 @@
+tr.currentmove, .currentmove td {
+   color: white;
+   background-color: tomato;
+   font-size: 105%;
+}
