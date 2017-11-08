@@ -10,13 +10,15 @@
         <h3 class="media-heading">{{gameinfo.title}}
           <span class="likebtn pull-right">
             <span *ngIf="loggedIn()" (click)="likeBtnClick(gameinfo)" type="button" title="{{likeBtnTitle}}" class="glyphicon" [ngClass]="{ 'glyphicon-heart-empty': !is_liked(gameinfo), 'glyphicon-heart': is_liked(gameinfo) }"
-                aria-hidden="true"></span>
-          <span *ngIf="!loggedIn()" title="Log in to like" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-          <em *ngIf="gameinfo.likes_count > 0">{{gameinfo.likes_count}}</em>
+              aria-hidden="true"></span>
+            <span *ngIf="!loggedIn()" title="Log in to like" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+            <em *ngIf="gameinfo.likes_count > 0">{{gameinfo.likes_count}}</em>
           </span>
         </h3>
-        <h4>{{gameinfo.player_1.name}} <i title="{{gameinfo.player_1.country}}" class="flag-icon-{{gameinfo.player_1.country | lowercase}} flag-icon "></i>          vs {{gameinfo.player_2.name}}
-          <i title="{{gameinfo.player_2.country}}" class="flag-icon-{{gameinfo.player_2.country | lowercase}} flag-icon "></i></h4>
+        <h4>{{gameinfo.player_1.name}}
+          <i title="{{gameinfo.player_1.country}}" class="flag-icon-{{gameinfo.player_1.country | lowercase}} flag-icon "></i> vs {{gameinfo.player_2.name}}
+          <i title="{{gameinfo.player_2.country}}" class="flag-icon-{{gameinfo.player_2.country | lowercase}} flag-icon "></i>
+        </h4>
         <ul class="list-inline text-center">
           <li>
             <i class="fa fa-book" aria-hidden="true"></i>
@@ -49,7 +51,8 @@
     <ngb-tabset [justify]="fill" [destroyOnHide]="false" type="pills">
       <ngb-tab>
         <ng-template ngbTabTitle>
-          Play <i class="fa fa-play" aria-hidden="true"></i>
+          Play
+          <i class="fa fa-play" aria-hidden="true"></i>
         </ng-template>
         <ng-template ngbTabContent>
           <app-ui-playtab [gameinfo]="gameinfo"></app-ui-playtab>
@@ -57,7 +60,8 @@
       </ngb-tab>
       <ngb-tab>
         <ng-template ngbTabTitle>
-          Moves <i class="fa fa-list-ol" aria-hidden="true"></i>
+          Move List
+          <i class="fa fa-list-ol" aria-hidden="true"></i>
         </ng-template>
         <ng-template ngbTabContent>
           <app-ui-movelist [gameinfo]="gameinfo"></app-ui-movelist>
@@ -65,14 +69,17 @@
       </ngb-tab>
       <ngb-tab>
         <ng-template ngbTabTitle>
-          Tiles <i class="fa fa-check" aria-hidden="true"></i>
+          Tile Tracking
+          <i class="fa fa-check" aria-hidden="true"></i>
         </ng-template>
         <ng-template ngbTabContent>
-           <app-ui-tracking [gameinfo]="gameinfo"></app-ui-tracking>
+          <app-ui-tracking [gameinfo]="gameinfo"></app-ui-tracking>
         </ng-template>
       </ngb-tab>
       <ngb-tab>
-        <ng-template ngbTabTitle>Tile Colors <i class="fa fa-cog" aria-hidden="true"></i></ng-template>
+        <ng-template ngbTabTitle>Tile Colors
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </ng-template>
         <ng-template ngbTabContent>
           <app-ui-settings (colorchange)=onTileColorChange($event)></app-ui-settings>
         </ng-template>

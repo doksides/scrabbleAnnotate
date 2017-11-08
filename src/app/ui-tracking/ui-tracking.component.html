@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-sm-10">
-    <h5>Unplayed Tiles</h5>
-    <div></div>
+    <h4>Unplayed Tiles
+      <span class="badge badge-pill badge-info">{{gameinfo.turn.total_unplayed_tiles}}</span>
+    </h4>
+    <ng-template [ngIf]="remTileSet.length > 0">
+      <span class="embossed-heavy tilesm rack" *ngFor="let item of remTileSet">
+        {{item}}
+      </span>
+    </ng-template>
   </div>
 </div>

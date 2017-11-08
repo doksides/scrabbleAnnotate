@@ -13,15 +13,22 @@
           <span>{{gameinfo.player1.prev_turn.totalscore}}</span>
         </ng-template>
       </h5>
-      <ng-template [ngIf]="gameinfo.winner===1">
-        <p><i class="fa fa-id-badge fa-2x" aria-hidden="true"></i> Winner!</p>
+      <ng-template [ngIf]=" gameinfo.isLastMove && gameinfo.winner===1">
+        <p class="notifywin">
+          <strong>Winner!</strong>
+          <i class="fa fa-trophy fa-5x" aria-hidden="true"></i>
+        </p>
       </ng-template>
       <ng-template [ngIf]="!whoseTurn  && gameinfo.player1.prev_turn && gameinfo.next_turn">
-        <p class="nextrack "><em>Next rack</em> <strong>{{gameinfo.next_turn.rack}}</strong></p>
+        <p class="nextrack ">
+          <em>Next rack</em>
+          <strong>{{gameinfo.next_turn.rack}}</strong>
+        </p>
         <ul class="list-inline prevmove ">
           <li>
             <em>Last move</em>
-            <strong>{{gameinfo.player1.prev_turn.fullword}}</strong> <small>{{gameinfo.player1.prev_turn.score}}</small>
+            <strong>{{gameinfo.player1.prev_turn.fullword}}</strong>
+            <small>{{gameinfo.player1.prev_turn.score}}</small>
           </li>
           <li>
             {{gameinfo.player1.prev_turn.totalscore}}
@@ -32,12 +39,19 @@
         <div class="center-block movegameinfo ">
           <ng-template [ngIf]="currTileSet.length > 0">
             <span class="embossed-heavy tilesm rack" *ngFor="let item of currTileSet">
-            {{item.tile | tileBlank }}<sub class='tilevalsm'>{{item.value}}</sub>
-          </span>
+              {{item.tile | tileBlank }}
+              <sub class='tilevalsm'>{{item.value}}</sub>
+            </span>
           </ng-template>
           <ul class="list-inline">
-            <li title="move" class="text-uppercase"><i class="fa fa-pencil"></i>
-              <small>{{gameinfo.turn.coord}}</small> <i *ngIf="gameinfo.turn.bonus" class="fa fa-bullseye" aria-hidden="true"></i>              {{gameinfo.turn.fullword}}</li>
+            <li title="move" class="text-uppercase">
+              <i class="fa fa-pencil"></i>
+              <small>{{gameinfo.turn.coord}}</small>
+              <i *ngIf="gameinfo.turn.bonus" class="fa fa-bullseye" aria-hidden="true"></i> {{gameinfo.turn.fullword}}
+              <em title="other words played" *ngIf="gameinfo.turn.other_words">
+                <small>({{gameinfo.turn.other_words.words}})</small>
+              </em>
+            </li>
             <li title="move score">{{gameinfo.turn.score}} </li>
 
           </ul>
@@ -58,21 +72,28 @@
           class="fa"></i>
         <ng-template [ngIf]="!whoseTurn" title="total score">
           <span>{{gameinfo.turn.totalscore}}
-        </span>
+          </span>
         </ng-template>
         <ng-template [ngIf]="whoseTurn && gameinfo.player2.prev_turn" title="total score">
           <span>{{gameinfo.player2.prev_turn.totalscore }}</span>
         </ng-template>
       </h5>
-      <ng-template [ngIf]="gameinfo.winner===2">
-        <span><i class="fa fa-id-badge fa-2x" aria-hidden="true"></i> Winner!</span>
+      <ng-template [ngIf]="gameinfo.isLastMove && gameinfo.winner===2">
+        <p class="notifywin">
+          <strong>Winner!</strong>
+          <i class="fa fa-trophy fa-5x" aria-hidden="true"></i>
+        </p>
       </ng-template>
       <ng-template [ngIf]="whoseTurn && gameinfo.player2.prev_turn && gameinfo.next_turn">
-        <p class="nextrack"><em>Next rack</em> <strong>{{gameinfo.next_turn.rack}}</strong></p>
+        <p class="nextrack">
+          <em>Next rack</em>
+          <strong>{{gameinfo.next_turn.rack}}</strong>
+        </p>
         <ul class="list-inline prevmove">
           <li>
             <em>Last move</em>
-            <strong>{{gameinfo.player2.prev_turn.fullword}}</strong> <small>{{gameinfo.player2.prev_turn.score}}</small>
+            <strong>{{gameinfo.player2.prev_turn.fullword}}</strong>
+            <small>{{gameinfo.player2.prev_turn.score}}</small>
           </li>
         </ul>
       </ng-template>
@@ -80,12 +101,19 @@
         <div class="center-block movegameinfo">
           <ng-template [ngIf]="currTileSet.length > 0">
             <span class="embossed-heavy tilesm rack" *ngFor="let item of currTileSet">
-           {{item.tile | tileBlank}}<sub class='tilevalsm'>{{item.value}}</sub>
-           </span>
+              {{item.tile | tileBlank}}
+              <sub class='tilevalsm'>{{item.value}}</sub>
+            </span>
           </ng-template>
           <ul class="list-inline">
-            <li title="move" class="text-uppercase"><i class="fa fa-pencil"></i>
-              <small>{{gameinfo.turn.coord}}</small> <i *ngIf="gameinfo.turn.bonus" class="fa fa-bullseye" aria-hidden="true"></i>              {{gameinfo.turn.fullword}}</li>
+            <li title="move" class="text-uppercase">
+              <i class="fa fa-pencil"></i>
+              <small>{{gameinfo.turn.coord}}</small>
+              <i *ngIf="gameinfo.turn.bonus" class="fa fa-bullseye" aria-hidden="true"></i> {{gameinfo.turn.fullword}}
+              <em title="other words played" *ngIf="gameinfo.turn.other_words">
+                <small>({{gameinfo.turn.other_words.words}})</small>
+              </em>
+            </li>
             <li title="move score">{{gameinfo.turn.score}}</li>
           </ul>
         </div>

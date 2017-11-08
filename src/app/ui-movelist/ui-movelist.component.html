@@ -26,7 +26,12 @@
       <td>{{item.moveno}}</td>
       <td>{{item.name| abbreviateString}}</td>
       <td>{{item.rack}}</td>
-      <td><small>{{item.coord}}</small> {{item.fullword}}</td>
+      <td>
+        <small>{{item.coord}}</small> {{item.fullword}}
+        <em *ngIf="item.other_words">
+          <small>({{item.other_words.words}})</small>
+        </em>
+      </td>
       <td>{{item.score}}</td>
       <td>{{item.totalscore}}</td>
     </tr>

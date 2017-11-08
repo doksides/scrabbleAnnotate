@@ -6,27 +6,33 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import {UiPlaytabComponent} from '../ui-playtab/ui-playtab.component';
-import {UiMovelistComponent} from '../ui-movelist/ui-movelist.component';
-import {AuthService} from '../auth/auth.service';
-import {AuthHttp, JwtHelper, tokenNotExpired} from 'angular2-jwt';
+import { UiPlaytabComponent } from '../ui-playtab/ui-playtab.component';
+import { UiTrackingComponent } from '../ui-tracking/ui-tracking.component';
+import { UiMovelistComponent } from '../ui-movelist/ui-movelist.component';
+import { AuthService } from '../auth/auth.service';
+import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 
 import * as _ from 'underscore';
 
-@Component({selector: 'app-move-panel', templateUrl: './move-panel.component.html', styleUrls: ['./move-panel.component.css']})
+@Component({
+  selector: 'app-move-panel',
+  templateUrl: './move-panel.component.html',
+  styleUrls: ['./move-panel.component.css']
+})
 export class MovePanelComponent implements OnInit {
-  @Input()gameinfo;
-  @Input()currentmove;
+  @Input() gameinfo;
+  @Input() currentmove;
 
-  @ViewChild(UiPlaytabComponent)playtab : UiPlaytabComponent;
-  @ViewChild(UiMovelistComponent)movelist : UiMovelistComponent;
+  @ViewChild(UiPlaytabComponent) playtab: UiPlaytabComponent;
+  @ViewChild(UiMovelistComponent) movelist: UiMovelistComponent;
+  @ViewChild(UiTrackingComponent) track: UiTrackingComponent;
 
-  @Output()pagerchange : EventEmitter < number > = new EventEmitter < number > ();
-  @Output()colorchange : EventEmitter < {} > = new EventEmitter < {} > ();
+  @Output() pagerchange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() colorchange: EventEmitter<{}> = new EventEmitter<{}>();
 
   // Pager vars
-  public turns : number;
-  public currentMove : number;
+  public turns: number;
+  public currentMove: number;
   public disabled = false;
 
   // alert
@@ -35,19 +41,17 @@ export class MovePanelComponent implements OnInit {
 
   private likeBtnTitle = 'Click to like this game';
 
-  constructor(private authbackend : AuthService) {}
+  constructor(private authbackend: AuthService) {}
 
   ngOnInit() {
     this._updateAlert();
     // console.log(this.gameinfo.turn);
   }
 
-  public onPanelPaginationChanged(event : any) : void {
+  public onPanelPaginationChanged(event: any): void {
     this.currentMove = +event;
     // console.log('currentMove from pager ' + this.currentMove);
-    this
-      .pagerchange
-      .emit(this.currentMove);
+    this.pagerchange.emit(this.currentMove);
   }
 
   private _updateAlert() {
@@ -70,26 +74,19 @@ export class MovePanelComponent implements OnInit {
 
   public updateView() {
     this._updateAlert();
-    this
-      .movelist
-      .buildMoveList();
-    this
-      .playtab
-      .initTiles();
+    this.movelist.buildMoveList();
+    this.playtab.initTiles();
+    this.track.displayTracking();
   }
 
-  public onTileColorChange(e : any) : void {
-    this
-      .colorchange
-      .emit(e);
+  public onTileColorChange(e: any): void {
+    this.colorchange.emit(e);
   }
 
   /** Likes button display */
-  public is_liked(data) : boolean {
+  public is_liked(data): boolean {
     // get current logged in user id
-    const userid = this
-      .authbackend
-      .getCurrentUser('id');
+    const userid = this.authbackend.getCurrentUser('id');
     if (this.loggedIn() && userid && data.likes_count > 0) {
       // has user already liked the game?
       const likes = data.liked_by;
@@ -112,9 +109,7 @@ export class MovePanelComponent implements OnInit {
     console.log(id);
   }
 
-  public loggedIn() : boolean {
-    return this
-      .authbackend
-      .loggedIn();
+  public loggedIn(): boolean {
+    return this.authbackend.loggedIn();
   }
 }

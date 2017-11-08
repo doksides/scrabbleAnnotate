@@ -1,18 +1,22 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {GamesService} from '../services/games.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GamesService } from '../services/games.service';
 import * as _ from 'underscore';
 
-@Component({selector: 'app-ui-playtab', templateUrl: './ui-playtab.component.html', styleUrls: ['./ui-playtab.component.css']})
+@Component({
+  selector: 'app-ui-playtab',
+  templateUrl: './ui-playtab.component.html',
+  styleUrls: ['./ui-playtab.component.css']
+})
 export class UiPlaytabComponent implements OnInit {
-  @Input()gameinfo;
+  @Input() gameinfo;
 
   // TileRack vars
-  public currentTiles : string;
-  public currTileSet : {};
-  public whoseTurn : boolean;
+  public currentTiles: string;
+  public currTileSet: {};
+  public whoseTurn: boolean;
 
-  constructor(private gamesrv : GamesService) {}
+  constructor(private gamesrv: GamesService) {}
 
   ngOnInit() {
     this.initTiles();
@@ -39,15 +43,12 @@ export class UiPlaytabComponent implements OnInit {
     // console.log('ct ' + this.currentTiles); console.log(this.currTileSet);
   }
 
-  private _getTileSet(tiles : string) : {}
-  {
+  private _getTileSet(tiles: string): {} {
     const rackarr = tiles.split('');
     return rackarr.map((val, key) => {
       const rack = {
         tile: val,
-        value: this
-          .gamesrv
-          .getTileValue(val)
+        value: this.gamesrv.getTileValue(val)
       };
       return rack;
     });
