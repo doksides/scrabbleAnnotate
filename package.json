@@ -37,7 +37,7 @@
     "flag-icon-css": "^2.8.0",
     "font-awesome": "^4.7.0",
     "is-redirect": "^1.0.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "ng-spin-kit": "^5.1.1",
     "ng2-bootstrap": "^1.4.2",
     "ng2-notify-popup": "^0.1.25",
