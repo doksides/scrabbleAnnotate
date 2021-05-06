@@ -44,7 +44,7 @@
     "ngx-auto-unsubscribe": "^1.0.0",
     "rxjs": "^5.1.0",
     "typescript": "^2.2.2",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "wp-api-angular": "^3.0.0-beta8",
     "zone.js": "^0.7.6"
   },
